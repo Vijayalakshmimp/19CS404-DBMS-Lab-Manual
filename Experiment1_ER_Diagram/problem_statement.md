@@ -22,8 +22,8 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 - Payments tracked for memberships and sessions.
 
 ### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_fitness.png)
+<img width="1276" height="849" alt="image" src="https://github.com/user-attachments/assets/b73edeb5-766b-4b41-945b-dfd7abb8cc01" />
+
 
 ### Entities and Attributes
 | Entity              | Attributes (PK, FK)                                                                                | Notes                                                    |
@@ -77,31 +77,45 @@ The Central Library wants to manage book lending and cultural events.
 - Overdue fines apply for late returns.
 
 ### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_library.png)
+
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+| Entity                 | Attributes (PK, FK)                                                                               | Notes                                                  |
+| ---------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| **MEMBER**             | **Member_ID (PK)**, Name, Email, Phone                                                            | Stores library member details                          |
+| **BOOK**               | **Book_ID (PK)**, Title, Author, Category                                                         | Stores book information                                |
+| **LOAN**               | **Loan_ID (PK)**, Member_ID (FK), Book_ID (FK), Loan_Date, Return_Date                            | Records book borrowing and return details              |
+| **EVENT**              | **Event_ID (PK)**, Event_Name, Event_Date, Event_Time                                             | Stores library cultural events                         |
+| **SPEAKER**            | **Speaker_ID (PK)**, Speaker_Name, Speaker_Type                                                   | Stores speakers/authors participating in events        |
+| **EVENT_SPEAKER**      | **Event_ID (PK, FK)**, **Speaker_ID (PK, FK)**                                                    | Associative entity for events having multiple speakers |
+| **EVENT_REGISTRATION** | **Registration_ID (PK)**, Event_ID (FK), Member_ID (FK), Registration_Date                        | Records members registering for events                 |
+| **ROOM**               | **Room_ID (PK)**, Room_Name, Capacity                                                             | Stores library room details                            |
+| **ROOM_BOOKING**       | **Booking_ID (PK)**, Room_ID (FK), Member_ID (FK), Event_ID (FK, optional), Booking_Date, Purpose | Records room bookings for events or study              |
+| **FINE**               | **Fine_ID (PK)**, Loan_ID (FK), Amount, Fine_Date, Payment_Status                                 | Records overdue fines for late book returns            |
+
 
 ### Relationships and Constraints
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+| Relationship                       | Cardinality | Participation                        | Notes                                                                                                                           |
+| ---------------------------------- | ----------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| **Member — borrows — Book**        | M:N         | Both: Partial                        | A member can borrow many books; a book can be borrowed by different members over time. Implemented using **LOAN**.              |
+| **Member — registers for — Event** | M:N         | Both: Partial                        | A member can register for multiple events, and an event can have multiple registered members.                                   |
+| **Event — has — Speaker**          | M:N         | Event: Total, Speaker: Partial       | Each event has one or more speakers/authors; a speaker may participate in multiple events. Implemented using **EVENT_SPEAKER**. |
+| **Event — uses — Room**            | 1:1         | Event: Total, Room: Partial          | Each event is assigned a room; a room can host different events at different times.                                             |
+| **Member — books — Room**          | 1:N         | Member: Partial, Room_Booking: Total | A member can make multiple room bookings for study.                                                                             |
+| **Loan — incurs — Fine**           | 1:0..1      | Loan: Partial, Fine: Total           | A loan may have a fine only if the book is returned late.                                                                       |
+
 
 ### Assumptions
-- 
-- 
-- 
+- Each member is uniquely identified by Member_ID.
+- A book can be borrowed multiple times by different members over time, but each LOAN record represents one borrowing transaction.
+- An event must have at least one speaker or author.
+- A member may register for multiple events, and an event may have multiple registered members.
+- A room can be booked for either an event or individual study.
+- Event_ID in ROOM_BOOKING is optional because study-room bookings are not associated with an event.
+- A fine is generated only when a book is returned after its due date.
+- Each loan can have at most one fine.
 
 ---
 
