@@ -77,6 +77,7 @@ The Central Library wants to manage book lending and cultural events.
 - Overdue fines apply for late returns.
 
 ### ER Diagram:
+<img width="928" height="622" alt="image" src="https://github.com/user-attachments/assets/f3205757-bb4b-486b-8130-e2a285228493" />
 
 
 ### Entities and Attributes
@@ -133,31 +134,43 @@ A popular restaurant wants to manage reservations, orders, and billing.
 - Waiters assigned to serve reservations.
 
 ### ER Diagram:
-*Paste or attach your diagram here*  
-![ER Diagram](er_diagram_restaurant.png)
+<img width="1310" height="870" alt="image" src="https://github.com/user-attachments/assets/dba77b92-0f5c-48bd-a1c7-68c4e57e2729" />
+
 
 ### Entities and Attributes
+| Entity          | Attributes (PK, FK)                                                                             | Notes                                                             |
+| --------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| **CUSTOMER**    | **Customer_ID (PK)**, Name, Phone, Email                                                        | Stores customer details                                           |
+| **RESERVATION** | **Reservation_ID (PK)**, Customer_ID (FK), Waiter_ID (FK), Res_Date, Res_Time, No_of_Guests     | Stores table reservation details                                  |
+| **WAITER**      | **Waiter_ID (PK)**, Waiter_Name, Phone                                                          | Stores waiter details                                             |
+| **ORDER**       | **Order_ID (PK)**, Reservation_ID (FK, optional), Order_Time, Order_Type                        | Stores food orders; Reservation_ID is optional for walk-in orders |
+| **ORDER_ITEM**  | **Order_ID (PK, FK)**, **Dish_ID (PK, FK)**, Quantity, Unit_Price                               | Represents dishes included in an order                            |
+| **DISH**        | **Dish_ID (PK)**, Dish_Name, Price, Category_ID (FK)                                            | Stores individual dishes                                          |
+| **CATEGORY**    | **Category_ID (PK)**, Category_Name                                                             | Categories include Starter, Main, and Dessert                     |
+| **BILL**        | **Bill_ID (PK)**, Order_ID (FK), Bill_Date, Sub_Total, Service_Charge, Tax_Amount, Total_Amount | Stores billing information for an order                           |
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
 
 ### Relationships and Constraints
+| Relationship                           | Cardinality | Participation                              | Notes                                                                                   |
+| -------------------------------------- | ----------- | ------------------------------------------ | --------------------------------------------------------------------------------------- |
+| **Customer — makes — Reservation**     | 1:N         | Customer: Partial, Reservation: Total      | A customer can make multiple reservations; each reservation belongs to one customer.    |
+| **Reservation — places — Order**       | 1:N         | Reservation: Partial, Order: Total/Partial | A reservation can have multiple orders. Walk-in orders may exist without a reservation. |
+| **Reservation — assigned to — Waiter** | N:1         | Reservation: Total, Waiter: Partial        | Each reservation is assigned to one waiter; a waiter can serve multiple reservations.   |
+| **Order — contains — Order_Item**      | 1:N         | Both: Total                                | Each order contains one or more order items.                                            |
+| **Order_Item — belongs to — Dish**     | N:1         | Order_Item: Total, Dish: Partial           | Each order item refers to one dish; a dish can appear in many order items.              |
+| **Dish — belongs to — Category**       | N:1         | Dish: Total, Category: Partial             | Each dish belongs to one category; a category can contain many dishes.                  |
+| **Order — generates — Bill**           | 1:1         | Both: Total                                | Each order generates one bill containing food, service, and applicable tax charges.     |
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
 
 ### Assumptions
-- 
-- 
-- 
+- Each customer is uniquely identified by Customer_ID.
+- A customer can make multiple reservations, but each reservation belongs to only one customer.
+- Reservation_ID is optional for an ORDER because walk-in customers can place orders without making a reservation.
+- Each order contains at least one dish, represented through ORDER_ITEM.
+- Each dish belongs to exactly one category: Starter, Main, or Dessert.
+- A waiter can serve multiple reservations, but each reservation is assigned to one waiter.
+- Each order generates one bill containing the food subtotal, service charge, tax, and total amount.
+- Unit_Price in ORDER_ITEM records the price of the dish at the time of ordering, so later price changes do not affect historical orders.
 
 ---
 
