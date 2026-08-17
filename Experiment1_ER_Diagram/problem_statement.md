@@ -27,26 +27,39 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+| Entity              | Attributes (PK, FK)                                                                                | Notes                                 
+
+| **MEMBER**          | **Member_ID (PK)**, Name, Membership_Type, Start_Date                                              | Stores registered gym members                            |
+| **PROGRAM**         | **Program_ID (PK)**, Program_Name                                                                  | Examples: Yoga, Zumba, Weight Training                   |
+| **TRAINER**         | **Trainer_ID (PK)**, Trainer_Name, Specialization                                                  | Stores trainer details                                   |
+| **SESSION**         | **Session_ID (PK)**, Session_Date, Session_Time, Member_ID (FK), Trainer_ID (FK)                   | Personal training session booked by a member             |
+| **ATTENDANCE**      | **Attendance_ID (PK)**, Session_ID (FK), Attendance_Status                                         | Records attendance for each session                      |
+| **PAYMENT**         | **Payment_ID (PK)**, Member_ID (FK), Session_ID (FK, optional), Amount, Payment_Date, Payment_Type | Tracks membership and personal-training payments         |
+| **MEMBER_PROGRAM**  | **Member_ID (PK, FK)**, **Program_ID (PK, FK)**, Join_Date                                         | Associative entity for members joining multiple programs |
+| **PROGRAM_TRAINER** | **Program_ID (PK, FK)**, **Trainer_ID (PK, FK)**                                                   | Associative entity for trainers assigned to programs     |
+
 
 ### Relationships and Constraints
+| Relationship                            | Cardinality | Participation                      | Notes                                                                                     |
+| --------------------------------------- | ----------- | ---------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Member — joins — Program**            | M:N         | Member: Partial, Program: Partial  | A member can join multiple programs; a program can have multiple members                  |
+| **Trainer — assigned to — Program**     | M:N         | Trainer: Partial, Program: Partial | A trainer can handle multiple programs; a program can have multiple trainers              |
+| **Member — books — Session**            | 1:N         | Member: Partial, Session: Total    | A member can book multiple personal-training sessions; each session belongs to one member |
+| **Trainer — conducts — Session**        | 1:N         | Trainer: Partial, Session: Total   | A trainer can conduct multiple sessions; each session is conducted by one trainer         |
+| **Session — has — Attendance**          | 1:1         | Both: Total                        | Each session has one attendance record                                                    |
+| **Member — makes — Payment**            | 1:N         | Member: Partial, Payment: Total    | A member can make multiple payments                                                       |
+| **Session — associated with — Payment** | 1:0..1      | Session: Partial, Payment: Partial | A payment may be for a personal-training session; membership payments need no session     |
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
 
 ### Assumptions
-- 
-- 
-- 
+- Each member is uniquely identified by a Member_ID.
+- A member can join one or more fitness programs, and a program can have multiple members.
+- A trainer can be assigned to multiple programs, and each program can have multiple trainers.
+- Each personal training session is booked by one member and conducted by one trainer.
+- Each session has one attendance record indicating whether the member attended.
+- A member can make multiple payments for memberships and personal training sessions.
+- A payment for a membership does not require a Session_ID; therefore, Session_ID is optional in PAYMENT.
+- The associative entities MEMBER_PROGRAM and PROGRAM_TRAINER are used to resolve the M:N relationships.
 
 ---
 
