@@ -26,9 +26,8 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 ![ER Diagram](er_diagram_fitness.png)
 
 ### Entities and Attributes
-
-| Entity              | Attributes (PK, FK)                                                                                | Notes                                 
-
+| Entity              | Attributes (PK, FK)                                                                                | Notes                                                    |
+| ------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
 | **MEMBER**          | **Member_ID (PK)**, Name, Membership_Type, Start_Date                                              | Stores registered gym members                            |
 | **PROGRAM**         | **Program_ID (PK)**, Program_Name                                                                  | Examples: Yoga, Zumba, Weight Training                   |
 | **TRAINER**         | **Trainer_ID (PK)**, Trainer_Name, Specialization                                                  | Stores trainer details                                   |
@@ -37,6 +36,7 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 | **PAYMENT**         | **Payment_ID (PK)**, Member_ID (FK), Session_ID (FK, optional), Amount, Payment_Date, Payment_Type | Tracks membership and personal-training payments         |
 | **MEMBER_PROGRAM**  | **Member_ID (PK, FK)**, **Program_ID (PK, FK)**, Join_Date                                         | Associative entity for members joining multiple programs |
 | **PROGRAM_TRAINER** | **Program_ID (PK, FK)**, **Trainer_ID (PK, FK)**                                                   | Associative entity for trainers assigned to programs     |
+
 
 
 ### Relationships and Constraints
