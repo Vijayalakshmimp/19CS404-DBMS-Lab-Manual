@@ -47,154 +47,151 @@ SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
--- Paste Question 1 here
-<img width="1101" height="563" alt="image" src="https://github.com/user-attachments/assets/a85a9494-84bb-413e-aa11-e81379a1774b" />
+<img width="872" height="82" alt="image" src="https://github.com/user-attachments/assets/d87ad37e-7bea-4edd-a9fa-3678bf3660eb" />
 
-```
-select DoctorID, count(*) as TotalAppointments
-from Appointments
-group by DoctorID
+
+```sql
+update Customer
+set grade='5'
+where city='Chennai';
 ```
 
 **Output:**
-<img width="818" height="690" alt="image" src="https://github.com/user-attachments/assets/e68657e6-644c-436d-860f-04f125034ebc" />
+<img width="1176" height="462" alt="image" src="https://github.com/user-attachments/assets/54118e6d-66a7-4439-8016-4d3954852c31" />
+
 
 
 **Question 2**
 ---
-<img width="1077" height="573" alt="image" src="https://github.com/user-attachments/assets/1cd17134-058f-4b92-8849-235b37c256de" />
+<img width="1062" height="632" alt="image" src="https://github.com/user-attachments/assets/a13e915d-d81e-40f3-acab-2097c1f17b82" />
 
 
+```sql
+update Employees
+set email='Unavailable';
 ```
-select Frequency, count(*) as TotalPrescriptions
-from Prescriptions
-group by Frequency
-```
+
 
 **Output:**
-<img width="858" height="533" alt="image" src="https://github.com/user-attachments/assets/181736c6-c835-43eb-b34f-d1b4444414b6" />
+<img width="1182" height="441" alt="image" src="https://github.com/user-attachments/assets/c6adb3a7-0bb3-475b-ac0f-5526e8ace2f2" />
 
 
 **Question 3**
 ---
-<img width="927" height="657" alt="image" src="https://github.com/user-attachments/assets/3074e40b-9f31-4b50-877c-b6b32c4b3f12" />
+<img width="1066" height="542" alt="image" src="https://github.com/user-attachments/assets/31284523-d848-409f-bcd8-97b3936f28d0" />
 
 
 ```sql
-select InsuranceCompany, avg(EndDate-StartDate) as AvgCoverageDurationDays
-from Insurance
-group by InsuranceCompany;
+update Products
+set category='Household'
+where product_name like'%Detergent%';
 ```
 
 **Output:**
-<img width="1067" height="605" alt="image" src="https://github.com/user-attachments/assets/d852f6cf-eab8-459a-9883-f979f7410f39" />
+<img width="1177" height="495" alt="image" src="https://github.com/user-attachments/assets/59975cab-ee6f-4a5c-bd57-41768b7df5a1" />
 
 
 **Question 4**
 ---
-<img width="743" height="521" alt="image" src="https://github.com/user-attachments/assets/486aa0cb-4a6f-4993-bfbd-64f96f372ca2" />
+<img width="1202" height="602" alt="image" src="https://github.com/user-attachments/assets/74716e7f-6325-4806-8141-2bcf51ddc8e5" />
 
 
 ```sql
-select count(id) as employees_in_california
-from employee
-where city='California';
+update Employees
+set salary = '8000'
+where employee_id='105' and salary<5000;
 ```
 
 **Output:**
-<img width="668" height="400" alt="image" src="https://github.com/user-attachments/assets/7773c8c2-3091-44d6-81f8-b84d14fc4197" />
+<img width="1182" height="237" alt="image" src="https://github.com/user-attachments/assets/fc132bc3-c25f-4510-933f-d1698c6fba30" />
 
 
 **Question 5**
 ---
-<img width="842" height="455" alt="image" src="https://github.com/user-attachments/assets/204e3d7b-35c3-4808-85ce-105ead90f5fd" />
+<img width="1205" height="632" alt="image" src="https://github.com/user-attachments/assets/5c531846-7faf-42e1-bb6b-bb298c4e8d86" />
 
 
 ```sql
-select avg(income) as avg_income
-from employee
-where name like 'A%';
+update Employees
+set salary=salary*2
+where department_id=20 and job_id like '%MAN';
 ```
 
 **Output:**
-<img width="515" height="381" alt="image" src="https://github.com/user-attachments/assets/faf09297-bff2-432f-90e7-5d2d22020063" />
+<img width="1182" height="333" alt="image" src="https://github.com/user-attachments/assets/44694b0f-0dce-4a31-8a2f-ba82f9ab8c7b" />
 
 
 **Question 6**
 ---
-<img width="755" height="471" alt="image" src="https://github.com/user-attachments/assets/cd3da2c9-b5d5-429d-9bdc-678ebf0496b1" />
+<img width="1192" height="531" alt="image" src="https://github.com/user-attachments/assets/9ceea7ab-00d4-4b52-aeba-255a3bb317d1" />
 
 
 ```sql
-select count(city) as unique_cities
-from customer;
+delete from Doctors
+where (specialization='Pediatrics' or specialization='Cardiology') and last_name='Brown';
 ```
 
 **Output:**
-<img width="550" height="367" alt="image" src="https://github.com/user-attachments/assets/aa6c607e-9d1d-47d3-8870-e20d7a952c2f" />
+<img width="1067" height="747" alt="image" src="https://github.com/user-attachments/assets/7d976b0a-955b-4c3d-bc79-a798f3ebb50a" />
 
 
 **Question 7**
 ---
-<img width="543" height="483" alt="image" src="https://github.com/user-attachments/assets/1423b282-9cfe-4cb8-a99c-e765ac00b6fb" />
+<img width="861" height="472" alt="image" src="https://github.com/user-attachments/assets/2a95fb60-9b9f-4d86-b2f1-0c7e764db84a" />
 
 
 ```sql
-select max(purch_amt) as MAXIMUM
-from orders;
+delete from Surgeries
+where surgery_date='2024-02-28';
 ```
 
 **Output:**
-<img width="518" height="362" alt="image" src="https://github.com/user-attachments/assets/72257ad5-69a1-428b-b8bc-24bc0db56336" />
+<img width="1190" height="381" alt="image" src="https://github.com/user-attachments/assets/a22cfb92-aa62-492f-b5c7-f2a09c54bcc8" />
 
 
 **Question 8**
 ---
-<img width="838" height="523" alt="image" src="https://github.com/user-attachments/assets/c433689e-d5b4-4f1e-ae64-8d34a122c867" />
+<img width="1196" height="677" alt="image" src="https://github.com/user-attachments/assets/57e7d5c5-dfb7-4b0d-a47c-e9ad76d9f7fc" />
 
 
 ```sql
-select age, AVG(income)
-from employee
-group by age
-having AVG(income) between 300000 and 500000;
+delete from Customer
+where GRADE<2;
 ```
 
 **Output:**
-<img width="602" height="382" alt="image" src="https://github.com/user-attachments/assets/6a5bde39-0cb4-434f-880c-cb086cae0b29" />
+<img width="770" height="540" alt="image" src="https://github.com/user-attachments/assets/b0620061-aece-4cf0-b3e3-fe4f911a3deb" />
 
 
 **Question 9**
 ---
-<img width="832" height="526" alt="image" src="https://github.com/user-attachments/assets/38197273-bd84-4617-be05-747e51210b22" />
+<img width="1217" height="517" alt="image" src="https://github.com/user-attachments/assets/b21c65ba-1889-4ea7-adb5-b091cddf9aef" />
 
 
 ```sql
-select category_id, sum(price) as Total_Cost
-from products
-group by category_id
-having sum(price)>50;
+delete from Customer
+where GRADE=2 and CUST_NAME like 'M%' and PAYMENT_AMT < 3000;
 ```
 
 **Output:**
-<img width="570" height="385" alt="image" src="https://github.com/user-attachments/assets/56d937e1-98b9-4d8c-be82-4575b008fbe6" />
+<img width="1197" height="406" alt="image" src="https://github.com/user-attachments/assets/10d2fcb1-6e35-48a9-bf2d-9af46c8a4f08" />
 
 
 **Question 10**
 ---
-<img width="847" height="477" alt="image" src="https://github.com/user-attachments/assets/95a3956d-968a-469f-8413-831ad3ff08e2" />
+<img width="1212" height="481" alt="image" src="https://github.com/user-attachments/assets/2543ce8d-edee-443b-8d78-908d2712742a" />
 
 
 ```sql
-select (age/5)*5 as age_group, 
-MIN(salary)
-from customer1
-group by (age/5)*5
-having MIN(salary)<2000;
+delete from Customer
+where (GRADE=3 or AGENT_CODE='A008') and OUTSTANDING_AMT<5000;
 ```
 
 **Output:**
-<img width="611" height="402" alt="image" src="https://github.com/user-attachments/assets/d3da84ac-1719-4026-ba1b-08a4f62bf2b0" />
+<img width="1175" height="377" alt="image" src="https://github.com/user-attachments/assets/150e6e73-904d-4abd-8cc0-b991c2d3dbe7" />
+
+**Module 2 SEB GRADE:**
+<img width="1418" height="408" alt="Screenshot 2026-08-30 155623" src="https://github.com/user-attachments/assets/abd24d42-1582-47de-b867-aeb8cc4927d8" />
 
 
 ## RESULT
