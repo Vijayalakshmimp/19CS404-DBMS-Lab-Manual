@@ -177,7 +177,7 @@ having MIN(salary)<2000;
 
 <img width="611" height="402" alt="image" src="https://github.com/user-attachments/assets/d3da84ac-1719-4026-ba1b-08a4f62bf2b0" />
 
-**Module 2 SEB GRADE:**
+**Module 3 SEB GRADE:**
 
 <img width="1418" height="408" alt="Screenshot 2026-08-30 155623" src="https://github.com/user-attachments/assets/099dbb7c-95a4-4ab1-a0c2-3b76750e5faf" />
 
