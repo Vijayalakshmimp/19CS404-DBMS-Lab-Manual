@@ -264,6 +264,10 @@ Create table Orders(OrderID INTEGER PRIMARY KEY,
 
 <img width="1104" height="351" alt="image" src="https://github.com/user-attachments/assets/7982c770-2112-4c19-8b9c-02a14581b696" />
 
+**Module 1 SEB GRADE**
+<img width="1418" height="408" alt="image" src="https://github.com/user-attachments/assets/89d5b1cf-c284-4dd6-9913-87843d8a68c5" />
+
+
 
 ## RESULT
 Thus, the SQL queries to implement different types of constraints and DDL commands have been executed successfully.
