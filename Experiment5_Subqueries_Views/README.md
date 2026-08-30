@@ -38,123 +38,178 @@ DROP VIEW view_name;
 
 **Question 1**
 --
--- Paste Question 1 here
+<img width="1252" height="622" alt="image" src="https://github.com/user-attachments/assets/88787922-b1db-4b1a-8214-a3e967cdb1c2" />
+
 
 ```sql
--- Paste your SQL code below for Question 1
+select *
+from GRADES g
+where grade=(select min(grade) 
+from GRADES
+where subject=g.subject);
 ```
 
 **Output:**
+<img width="1247" height="452" alt="image" src="https://github.com/user-attachments/assets/5f77170f-19f9-4757-bf73-4feb588efbb9" />
 
-![Output1](output.png)
 
 **Question 2**
 ---
--- Paste Question 2 here
+<img width="1092" height="521" alt="image" src="https://github.com/user-attachments/assets/a6f689a0-9308-4246-8623-a5f6250f8b99" />
+
 
 ```sql
--- Paste your SQL code below for Question 2
+select name, city
+from Customer
+where city in(
+select city
+from customer
+where id in (3,7));
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="821" height="427" alt="image" src="https://github.com/user-attachments/assets/184405dd-6f1e-4fd6-8fe4-5d060cbad19a" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+<img width="973" height="751" alt="image" src="https://github.com/user-attachments/assets/01b59342-8adc-4b5f-b5e9-c80e587d3f64" />
+
 
 ```sql
--- Paste your SQL code below for Question 3
+select * from CUSTOMERS
+where age<30;
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1242" height="573" alt="image" src="https://github.com/user-attachments/assets/8e269d4e-1d1f-4b00-85d3-0b591ec922f7" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+<img width="1081" height="432" alt="image" src="https://github.com/user-attachments/assets/107d6880-aef4-440f-bfee-1d12f3f2a0eb" />
+
 
 ```sql
--- Paste your SQL code below for Question 4
+select department_id as depar, department_name
+from Departments
+where length(department_name) > (
+select avg(length(department_name))
+from Departments);
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="647" height="391" alt="image" src="https://github.com/user-attachments/assets/fda03dac-af43-4163-b95e-cd4b5ddfa5ce" />
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+<img width="1000" height="616" alt="image" src="https://github.com/user-attachments/assets/cb2e5c14-448c-4411-b8fb-43808f9cc481" />
+
 
 ```sql
--- Paste your SQL code below for Question 5
+select *
+from CUSTOMERS
+where salary=1500;
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1216" height="322" alt="image" src="https://github.com/user-attachments/assets/7f9fc386-ca23-4acc-98e0-f03653fbab5a" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+<img width="932" height="613" alt="image" src="https://github.com/user-attachments/assets/40313c13-3ca5-4398-98a5-4bb1dc46edc7" />
+
 
 ```sql
--- Paste your SQL code below for Question 6
+select * from CUSTOMERS
+where ADDRESS='Delhi';
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1225" height="327" alt="image" src="https://github.com/user-attachments/assets/126367d0-08c5-41df-b593-7473b888bdd7" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+<img width="1231" height="507" alt="image" src="https://github.com/user-attachments/assets/b635fa26-e534-4cc6-bc23-3c61325a84e1" />
+
 
 ```sql
--- Paste your SQL code below for Question 7
+select grade, COUNT(*)
+from customer
+where grade >(
+select avg(grade)
+from customer
+where city='New York')
+group by grade;
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="687" height="332" alt="image" src="https://github.com/user-attachments/assets/041d9806-ed6f-4c13-9ebc-f0c87242b2d0" />
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+<img width="1112" height="657" alt="image" src="https://github.com/user-attachments/assets/01080084-0da9-4bee-be4f-df29afa65b50" />
+
 
 ```sql
--- Paste your SQL code below for Question 8
+select * from Employee
+where age<(
+select avg(age) 
+from Employee
+where income>250000);
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1242" height="511" alt="image" src="https://github.com/user-attachments/assets/d0e5eb46-f6b2-45f4-9a12-34c15458c09a" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+<img width="996" height="687" alt="image" src="https://github.com/user-attachments/assets/cdfc42c4-47a0-4353-b67a-df777c21637c" />
+
 
 ```sql
--- Paste your SQL code below for Question 9
+select *
+from CUSTOMERS
+where SALARY<2500;
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1215" height="440" alt="image" src="https://github.com/user-attachments/assets/f9757b43-c2d3-4bb1-a19f-9e657a9c8c9c" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+<img width="1111" height="612" alt="image" src="https://github.com/user-attachments/assets/8d45123c-f972-4167-9e9d-92d298f89f38" />
+
 
 ```sql
--- Paste your SQL code below for Question 10
+select * from Employee
+where age<(
+select avg(age) 
+from Employee
+where income>1000000);
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1233" height="407" alt="image" src="https://github.com/user-attachments/assets/f1f9ec81-1651-4d22-bed6-97d99fa9707d" />
+
+
+**Module 4 SEB GRADE:**
+<img width="1418" height="408" alt="Screenshot 2026-08-30 155623" src="https://github.com/user-attachments/assets/6ac523fa-bc0f-427e-a579-5ecd5d364577" />
 
 
 ## RESULT
