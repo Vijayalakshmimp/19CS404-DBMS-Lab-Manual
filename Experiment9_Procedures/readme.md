@@ -236,6 +236,7 @@ Multiplication table of 5:
 5 x 10 = 50
 
 **Output:**
+
 <img width="556" height="385" alt="image" src="https://github.com/user-attachments/assets/e3baf7a2-b3a8-409a-a83d-22dfdbfe7361" />
 
 ## RESULT
