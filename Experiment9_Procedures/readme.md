@@ -114,6 +114,7 @@ END;
 Factorial of 5 is 120
 
 **Output:**
+
 <img width="682" height="165" alt="image" src="https://github.com/user-attachments/assets/d0771f7b-c5ff-4259-90e0-4d825733b5ad" />
 
 ---
